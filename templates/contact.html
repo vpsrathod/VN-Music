@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %} Contact {% endblock title %}
+
+{% block body %}
+<div class="container-fluid px-0">
+    <!-- Full-width background image -->
+    <div class="hero-image">
+        <img src="/static/img/17.jpg" class="img-fluid" alt="Background Image">
+        <div class="hero-text">
+            <h1>Contact Us</h1>
+            <p>We're here to help and answer any question you might have. Reach out to us!</p>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5 mb-5">
+    <!-- Contact Form Section -->
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg border-0 rounded">
+                <div class="card-body">
+                    <h2 class="text-center mb-4">Get in Touch</h2>
+                    
+                    <!-- Display messages here -->
+                    {% if messages %}
+                        <div class="alert alert-success" role="alert">
+                            {% for message in messages %}
+                                {{ message }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    
+                    <form method="post" action="{% url 'contact' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="desc">Your Message</label>
+                            <textarea class="form-control" id="desc" rows="5" name="desc" placeholder="Write your message here" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hero-image {
+        position: relative;
+        overflow: hidden;
+    }
+    .hero-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #ffffff;
+    }
+    .hero-text h1 {
+        font-size: 4rem;
+        font-weight: bold;
+    }
+    .hero-text p {
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+    .card {
+        background-color: #1c1c1c;
+        color: #f0f0f0;
+    }
+    .card-body {
+        padding: 2rem;
+    }
+    .btn-success {
+        background-color: #00e676;
+        border: none;
+    }
+    .btn-success:hover {
+        background-color: #00bcd4;
+    }
+</style>
+{% endblock body %}

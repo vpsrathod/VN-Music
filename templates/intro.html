@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %} Welcome to VN Music {% endblock %}
+
+{% block body %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>VN Music</h1>
+            <p>Embrace the Future of Music</p>
+            <a href="/about" class="btn btn-primary">Discover More</a>
+        </div>
+    </section>
+{% endblock %}
+
+<style>
+    /* Full-screen hero section */
+    .hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #1a237e, #283593); /* Deep blue gradient */
+        color: #ffffff;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Hero content */
+    .hero-content {
+        z-index: 1;
+        padding: 20px;
+        max-width: 80%;
+    }
+
+    .hero h1 {
+        font-size: 4em;
+        margin-bottom: 20px;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    .hero p {
+        font-size: 1.5em;
+        margin-bottom: 30px;
+        animation: fadeIn 2s ease-in-out 0.5s;
+    }
+
+    .btn-primary {
+        background-color: #ff4081; /* Bright pink */
+        border: none;
+        color: #ffffff;
+        padding: 15px 30px;
+        font-size: 1.2em;
+        border-radius: 50px;
+        text-transform: uppercase;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #f50057; /* Slightly darker pink */
+        transform: scale(1.05);
+    }
+
+    /* Animated background effect */
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0) 60%);
+        animation: pulse 10s infinite;
+        z-index: 0;
+    }
+
+    /* Fade-in animation for text */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Pulsing background effect */
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+</style>

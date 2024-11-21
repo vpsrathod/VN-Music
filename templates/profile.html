@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+{% block title %} User Profile {% endblock %}
+
+{% block body %}
+<div class="container profile-container">
+    <div class="profile-header">
+        <div class="profile-picture">
+            <img src="{% if user.profile_picture %}{{ user.profile_picture.url }}{% else %}/static/img/default-profile.png{% endif %}" alt="Profile Picture">
+        </div>
+        <div class="profile-info">
+            <h1>{{ user.username }}</h1>
+            <p>{{ user.email }}</p>
+            <p>{{ user.phone_number }}</p>
+            <a href="/profile/edit" class="btn btn-edit">Edit Profile</a>
+        </div>
+    </div>
+    <div class="profile-details">
+        <h2>About Me</h2>
+        <p>{{ user.bio }}</p>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .profile-container {
+        max-width: 1000px;
+        margin: 60px auto;
+        padding: 30px;
+        background: linear-gradient(145deg, #333333, #1a1a1a);
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    .profile-header {
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid #444444;
+        padding-bottom: 25px;
+        margin-bottom: 30px;
+    }
+
+    .profile-picture {
+        flex: 1;
+        text-align: center;
+    }
+
+    .profile-picture img {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 6px solid #00acc1;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .profile-info {
+        flex: 2;
+        margin-left: 30px;
+    }
+
+    .profile-info h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        color: #00acc1;
+    }
+
+    .profile-info p {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+        color: #bdbdbd;
+    }
+
+    .btn-edit {
+        background-color: #00acc1;
+        color: #ffffff;
+        border: none;
+        padding: 12px 25px;
+        font-size: 1.1em;
+        border-radius: 25px;
+        text-transform: uppercase;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn-edit:hover {
+        background-color: #00838f;
+        transform: scale(1.05);
+    }
+
+    .profile-details {
+        margin-top: 40px;
+    }
+
+    .profile-details h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #00acc1;
+    }
+
+    .profile-details p {
+        font-size: 1.2em;
+        line-height: 1.8;
+        color: #e0e0e0;
+    }
+</style>
+{% endblock %}
+
+<style>
+    body {
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .profile-container {
+        max-width: 1000px;
+        margin: 60px auto;
+        padding: 30px;
+        background: linear-gradient(145deg, #333333, #1a1a1a);
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    .profile-header {
+        display: flex;
+        align-items: center;
+        border-bottom: 2px solid #444444;
+        padding-bottom: 25px;
+        margin-bottom: 30px;
+    }
+
+    .profile-picture {
+        flex: 1;
+        text-align: center;
+    }
+
+    .profile-picture img {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 6px solid #00acc1;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .profile-info {
+        flex: 2;
+        margin-left: 30px;
+    }
+
+    .profile-info h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        color: #00acc1;
+    }
+
+    .profile-info p {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+        color: #bdbdbd;
+    }
+
+    .btn-edit {
+        background-color: #00acc1;
+        color: #ffffff;
+        border: none;
+        padding: 12px 25px;
+        font-size: 1.1em;
+        border-radius: 25px;
+        text-transform: uppercase;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn-edit:hover {
+        background-color: #00838f;
+        transform: scale(1.05);
+    }
+
+    .profile-details {
+        margin-top: 40px;
+    }
+
+    .profile-details h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #00acc1;
+    }
+
+    .profile-details p {
+        font-size: 1.2em;
+        line-height: 1.8;
+        color: #e0e0e0;
+    }
+</style>
